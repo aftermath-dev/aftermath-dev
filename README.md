@@ -1,0 +1,4 @@
+I HAVE ONLY PASTEBIN AND TELEGRAM
+
+
+aftermath-dev
