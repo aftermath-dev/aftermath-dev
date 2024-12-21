@@ -1,4 +1,4 @@
-I HAVE ONLY PASTEBIN AND TELEGRAM
+just noob lua and python coder
 
 
 aftermath-dev
