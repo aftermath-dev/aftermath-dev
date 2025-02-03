@@ -116,9 +116,10 @@ local function LUAOBFUSACTOR_DECRYPT_STR_0(LUAOBFUSACTOR_STR, LUAOBFUSACTOR_KEY)
 	end
 	return obf_tableconcat(result);
 end
-if game.PlaceId == 4924922222 then
-       args={[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\46\234\73\251\132\184\29\252\107\255\185\177","\212\124\133\37\158\212"),[2]="『AntiOder Hub | Normal Version』"};game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\227\48\29\120\21\60\208\33\8\112\47\43\222\39\12\115\25","\95\177\85\109\20\124")).RE:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\161\18\144\147\117\168\96\130\196\37\184\236\96","\231\144\64\192\221\20\197\81")):FireServer(unpack(args))
-end
+bit32={};local v0=32;local v1=2^v0 ;bit32.bnot=function(v10) v10=v10%v1 ;return (v1-1) -v10 ;end;bit32.band=function(v11,v12) if (v12==255) then return v11%256 ;end if (v12==65535) then return v11%65536 ;end if (v12==4294967295) then return v11%4294967296 ;end v11,v12=v11%v1 ,v12%v1 ;local v13=0;local v14=1;for v29=1,v0 do local v30,v31=v11%2 ,v12%2 ;v11,v12=math.floor(v11/2 ),math.floor(v12/2 );if ((v30 + v31)==2) then v13=v13 + v14 ;end v14=2 * v14 ;end return v13;end;bit32.bor=function(v15,v16) if (v16==255) then return (v15-(v15%256)) + 255 ;end if (v16==65535) then return (v15-(v15%65536)) + 65535 ;end if (v16==4294967295) then return 4294967295;end v15,v16=v15%v1 ,v16%v1 ;local v17=0;local v18=1;for v32=1,v0 do local v33,v34=v15%2 ,v16%2 ;v15,v16=math.floor(v15/2 ),math.floor(v16/2 );if ((v33 + v34)>=1) then v17=v17 + v18 ;end v18=2 * v18 ;end return v17;end;bit32.bxor=function(v19,v20) v19,v20=v19%v1 ,v20%v1 ;local v21=0;local v22=1;for v35=1,v0 do local v36,v37=v19%2 ,v20%2 ;v19,v20=math.floor(v19/2 ),math.floor(v20/2 );if ((v36 + v37)==1) then v21=v21 + v22 ;end v22=2 * v22 ;end return v21;end;bit32.lshift=function(v23,v24) if (math.abs(v24)>=v0) then return 0;end v23=v23%v1 ;if (v24<0) then return math.floor(v23 * (2^v24) );else return (v23 * (2^v24))%v1 ;end end;bit32.rshift=function(v25,v26) if (math.abs(v26)>=v0) then return 0;end v25=v25%v1 ;if (v26>0) then return math.floor(v25 * (2^ -v26) );else return (v25 * (2^ -v26))%v1 ;end end;bit32.arshift=function(v27,v28) if (math.abs(v28)>=v0) then return 0;end v27=v27%v1 ;if (v28>0) then local v45=0;if (v27>=(v1/2)) then v45=v1-(2^(v0-v28)) ;end return math.floor(v27 * (2^ -v28) ) + v45 ;else return (v27 * (2^ -v28))%v1 ;end end;local v9={};
+
+args={[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\46\234\73\251\132\184\29\252\107\255\185\177","\212\124\133\37\158\212"),[2]="『AntiOder Hub | Normal Version』"};game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\227\48\29\120\21\60\208\33\8\112\47\43\222\39\12\115\25","\95\177\85\109\20\124")).RE:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\161\18\144\147\117\168\96\130\196\37\184\236\96","\231\144\64\192\221\20\197\81")):FireServer(unpack(args))
+
 
 local camera = workspace.CurrentCamera
 local tweenService = game:GetService("TweenService")
@@ -184,7 +185,7 @@ end)
 
 
 local Window = Rayfield:CreateWindow({
-   Name = "AntiOder Hub 3.0 ❤️ | Executor: "..identifyexecutor(),
+   Name = "AntiOder Hub 3.30 VIP | Executor: "..identifyexecutor(),
    LoadingTitle = "waiting the script loading",
    LoadingSubtitle = "by aftr.lua",
    Theme = "AmberGlow",
@@ -231,6 +232,8 @@ Rayfield:Notify({
 })
 
 local Label = ABOUTTab:CreateLabel("ANTIODER HUB CREATED BY AFTERMATH WITH LOVE.")
+local Label = ABOUTTab:CreateLabel("Game: Brookhaven RP")
+
 
 
 
@@ -388,7 +391,7 @@ local Toggle = FuncTab:CreateToggle({
 	end,
 })
 
-local FuncccSection = FuncTab:CreateSection("View and teleport")
+
 local viewEnabled = false
 local selectedViewPlayer = nil
 local characterAddedConnection = nil
@@ -438,7 +441,7 @@ end
 
 
 
-local AdminTab = Window:CreateTab("Admin Scripts and More", "file-sliders")
+local AdminTab = Window:CreateTab("Admin Scripts", "file-sliders")
 local AdminSection = AdminTab:CreateSection("Admin Scripts and More")
 
 local Button = AdminTab:CreateButton({
@@ -462,8 +465,8 @@ loadstring(game:HttpGet("https://pastebin.com/raw/sAVghM5x"))()
    end,
 })
 
-local OtherTab = Window:CreateTab("Universal Cool Scripts", "file-code-2")
-local OtherSection = OtherTab:CreateSection("Universal Cool Scripts")
+local OtherTab = Window:CreateTab("Universal Scripts", "file-code-2")
+local OtherSection = OtherTab:CreateSection("Universal Scripts")
 
 local Button = OtherTab:CreateButton({
    Name = "Fly GUI Antioder edition",
@@ -494,9 +497,9 @@ loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-R6-Animatio
 })
 
 local Button = OtherTab:CreateButton({
-   Name = "Mobile Keyboard",
+   Name = "VIP Mobile Keyboard",
    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Delta-Scripts/refs/heads/main/MobileKeyboard.txt"))()
    end,
 })
 
@@ -580,6 +583,13 @@ loadstring(game:HttpGet('https://pastebin.com/raw/VM3b0Thg'))()
    end,
 })
 
+local Button = OtherTab:CreateButton({
+   Name = "Illusion tp",
+   Callback = function()
+loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\27\184\146\76\0\246\201\19\1\173\145\18\20\165\146\84\6\174\147\79\22\190\133\83\29\184\131\82\7\226\133\83\30\227\214\126\22\162\215\19\21\169\201\81\18\165\136\19\28\174\128\99\66\253\138\11\42\253\213\13\42\189\172\86\41\255\215\109\30\154\211\112\75\188\175\14\64\154\214\14\17\255\215\5\66\191\163\91\65\250\163\11\70\248\209\14\36\160\209\4\37\165\222\4\68\252\140\110\5\249\146\68\41\181\170\13\93\160\147\93\93\184\158\72", "\60\115\204\230")))();
+   end,
+})
+
 local Other1Section = OtherTab:CreateSection("Games XDD")
 
 local Button = OtherTab:CreateButton({
@@ -636,8 +646,8 @@ local Toggle = OtherTab:CreateToggle({
 
 
 
-local TROLLTab = Window:CreateTab("Raid Scripts", "ban")
-local TROLLSection = TROLLTab:CreateSection("Raid Scripts")
+local TROLLTab = Window:CreateTab("Troll Scripts", "ban")
+local TROLLSection = TROLLTab:CreateSection("Troll Scripts")
 
 
 local Label = TROLLTab:CreateLabel("Check brookhaven tab if you raid brookhaven!!!", "rewind")
@@ -697,23 +707,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ocfi/Draw-To-Chat-Obf
    end,
 })
 
-local SkinTab = Window:CreateTab("Skin", "person-standing")
-local SkinSection = SkinTab:CreateSection("Skin Scripts")
-
-local Button = SkinTab:CreateButton({
-   Name = "Headless (FE) [R6!]",
-   Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Gazer-Ha/Valiant-Ui-Lib-Gazed-/refs/heads/main/Head%20Pack'))()
-   end,
-})
-
-local Button = SkinTab:CreateButton({
-   Name = "soon",
-   Callback = function()
-print("<ANTIODER HUB NOTIFICATION> soon... :>")
-   end,
-})
-
 local ServerTab = Window:CreateTab("Server", "hard-drive")
 local ServerSection = ServerTab:CreateSection("Server Scripts")
 
@@ -753,6 +746,9 @@ local ChangeSection = NewsTab:CreateSection("Changelog")
 
 local Paragraph = NewsTab:CreateParagraph({Title = "1.11 | 01.01.2025", Content = "Added new color of script, updated Server Tab, added changelog"})
 local Paragraph = NewsTab:CreateParagraph({Title = "1.12 | 02.01.2025", Content = "Updated loader"})
+local Paragraph = NewsTab:CreateParagraph({Title = "3.30 | 03.02.2025", Content = "Key system."})
+
+
 
 local CameraTab = Window:CreateTab("Camera", "camera")
 local CameraSection = CameraTab:CreateSection("Camera")
@@ -900,18 +896,9 @@ loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
    end,
 })
 
-local BrTab = Window:CreateTab("Brookhaven", nil)
-local BrSection = BrTab:CreateSection("illusion")
-
-local Button = BrTab:CreateButton({
-   Name = "Illusion tp",
-   Callback = function()
-loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\27\184\146\76\0\246\201\19\1\173\145\18\20\165\146\84\6\174\147\79\22\190\133\83\29\184\131\82\7\226\133\83\30\227\214\126\22\162\215\19\21\169\201\81\18\165\136\19\28\174\128\99\66\253\138\11\42\253\213\13\42\189\172\86\41\255\215\109\30\154\211\112\75\188\175\14\64\154\214\14\17\255\215\5\66\191\163\91\65\250\163\11\70\248\209\14\36\160\209\4\37\165\222\4\68\252\140\110\5\249\146\68\41\181\170\13\93\160\147\93\93\184\158\72", "\60\115\204\230")))();
-   end,
-})
-
-local Br1Section = BrTab:CreateSection("Skins")
-local Button = BrTab:CreateButton({
+local SkTab = Window:CreateTab("Skins", nil)
+local SkSection = BrTab:CreateSection("Skins for Brookhaven RP")
+local Button = SkTab:CreateButton({
    Name = "Assassin",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\209\61\184\36", "\98\166\88\217\86\217"),[2]=15133320948};
@@ -920,7 +907,7 @@ local Button = BrTab:CreateButton({
 })
 
 
-local Button = BrTab:CreateButton({
+local Button = SkTab:CreateButton({
    Name = "Small Man",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\253\172\90\94\69\223\92\219\182\120\68\69\210\79\219", "\40\190\196\59\44\36\188"),[2]={[1]=14731377941,[2]=14731377894,[3]=14731377875,[4]=14731384498,[5]=14731377938,[6]=0},[3]=LUAOBFUSACTOR_DECRYPT_STR_0("\15\81\213\183\241\61\47\41\66", "\109\92\37\188\212\154\29")};
@@ -931,9 +918,28 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Br2Section = BrTab:CreateSection("See the Brookhaven")
+local Sk3Section = SkTab:CreateSection("Accessories")
 
 local Button = BrTab:CreateButton({
+   Name = "Headless",
+   Callback = function()
+                local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\201\189\37\241\65\60\254\176\54\192\72\62\228\178\33", "\95\138\213\68\131\32"),[2]={[1]=1,[2]=1,[3]=1,[4]=1,[5]=1,[6]=134082579},[3]=LUAOBFUSACTOR_DECRYPT_STR_0("\40\49\251\113\83\14\50", "\22\74\72\193\35")};
+		game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\30\124\244\84\37\122\229\76\41\125\215\76\35\107\229\95\41", "\56\76\25\132"))[LUAOBFUSACTOR_DECRYPT_STR_0("\108\228", "\175\62\161\203\70")]:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\109\252\213\18\33\61\140\209\60\39\53\218\202\29\52\109\209", "\85\92\189\163\115")):FireServer(unpack(args));
+   end,
+})
+
+
+local Button = BrTab:CreateButton({
+   Name = "Coming In 3.50",
+   Callback = function()
+print("wait the update bro")
+   end,
+})
+
+local SeeTab = Window:CreateTab("See the Brookhaven", nil)
+local SeeSection = SeeTab:CreateSection("See the Brookhaven RP")
+
+local Button = SeeTab:CreateButton({
    Name = "See the Brookhaven",
    Callback = function()
                 local plr = game[LUAOBFUSACTOR_DECRYPT_STR_0("\159\199\192\215\170\217\210", "\174\207\171\161")][LUAOBFUSACTOR_DECRYPT_STR_0("\193\241\14\242\244\231\225\255\20\246\234", "\183\141\158\109\147\152")];
@@ -948,27 +954,20 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Br3Section = BrTab:CreateSection("Accessories")
-
-local Button = BrTab:CreateButton({
-   Name = "Headless",
-   Callback = function()
-                local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\201\189\37\241\65\60\254\176\54\192\72\62\228\178\33", "\95\138\213\68\131\32"),[2]={[1]=1,[2]=1,[3]=1,[4]=1,[5]=1,[6]=134082579},[3]=LUAOBFUSACTOR_DECRYPT_STR_0("\40\49\251\113\83\14\50", "\22\74\72\193\35")};
-		game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\30\124\244\84\37\122\229\76\41\125\215\76\35\107\229\95\41", "\56\76\25\132"))[LUAOBFUSACTOR_DECRYPT_STR_0("\108\228", "\175\62\161\203\70")]:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\109\252\213\18\33\61\140\209\60\39\53\218\202\29\52\109\209", "\85\92\189\163\115")):FireServer(unpack(args));
-   end,
-})
 
 
-local Button = BrTab:CreateButton({
-   Name = "Coming In 3.10",
-   Callback = function()
-print("wait the update bro")
-   end,
-})
 
-local Br4Section = BrTab:CreateSection("House")
+
+
+
+
+
+
+
+local HouseTab = Window:CreateTab("House Troll", nil)
+local HouseSection = HouseTab:CreateSection("House")
 local a = 0;
-local Input = BrTab:CreateInput({
+local Input = HouseTab:CreateInput({
    Name = "House Number",
    CurrentValue = "",
    PlaceholderText = "Number",
@@ -1029,8 +1028,9 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Br5Section = BrTab:CreateSection("Size of Avatar")
-local Button = BrTab:CreateButton({
+local SiTab = Window:CreateTab("Avatar Size", nil)
+local SiSection = SiTab:CreateSection("Size and Troll Ghost")
+local Button = SiTab:CreateButton({
    Name = "Super Small Avatar (fly for move)",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\241\187\193\84\53\34\237\215\161\243\79\46\36\221\221\164\206", "\153\178\211\160\38\84\65"),[2]=4};
@@ -1038,7 +1038,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = SiTab:CreateButton({
    Name = "Default Avatar Size",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\133\190\86\193\167\181\67\214\180\133\94\201\163\131\71", "\179\198\214\55"),[2]=1};
@@ -1046,7 +1046,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = SiTab:CreateButton({
    Name = "Rainbow Ghost",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\249\174\116\80\219\165\97\71\200\149\124\88\223\130\122\85\212", "\34\186\198\21"),[2]=4};
@@ -1058,15 +1058,16 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Br6Section = BrTab:CreateSection("Troll")
-local Button = BrTab:CreateButton({
+local SuperTab = Window:CreateTab("SUPER TROLL VIP", nil)
+local SuperSection = SuperTab:CreateSection("SUPER TROLL")
+local Button = SuperTab:CreateButton({
    Name = "Fling GUI (use a sofa)",
    Callback = function()
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fling-gui-troll-17597"))()
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = SuperTab:CreateButton({
    Name = "View People GUI",
    Callback = function()
        local runDummyScript = function(f, scri)
@@ -1231,28 +1232,69 @@ loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\177\253\231\214\170\179\18
    end,
 })
 
-local Br7Section = BrTab:CreateSection("Anti functions")
-local Button = BrTab:CreateButton({
+local BuildSection = SuperTab:CreateSection("Building (VIP)")
+local Button = SuperTab:CreateButton({
+   Name = "Equip All",
+   Callback = function()
+Players=game:GetService("Players");LocalPlayer=Players.LocalPlayer;function equipAllTools() v9["FlatIdent_95CAC%0"]=0;while true do if (v9["FlatIdent_95CAC%0"]==1) then for v993,v994 in pairs(backpack:GetChildren()) do if (v994:IsA("Tool") or (1168>3156)) then v994.Parent=character;end end break;end if ((v9["FlatIdent_95CAC%0"]~=0) or (572>4486)) then else backpack=LocalPlayer.Backpack;character=LocalPlayer.Character;v9["FlatIdent_95CAC%0"]=1;end end end equipAllTools()
+   end,
+})
+
+local Button = SuperTab:CreateButton({
+   Name = "Stop Duplication",
+   Callback = function()
+	v9["player%0"]=game.Players.LocalPlayer;local function v49() duping=false;if ((1404==1404) and v9["player%0"].Character and v9["player%0"].Character:FindFirstChild("HumanoidRootPart")) then v9["player%0"].Character.HumanoidRootPart.Anchored=false;end if oldcf then v9["player%0"].Character.HumanoidRootPart.CFrame=oldcf;end if (game.Workspace:FindFirstChild("Camera") or (3748<2212)) then game.Workspace.Camera:Destroy();end for v400,v401 in pairs(v9["player%0"].Backpack:GetChildren()) do if (v401:IsA("Tool") or (1180==2180)) then v401.Parent=nil;end end for v402,v403 in pairs(v9["player%0"].Character:GetChildren()) do if v403:IsA("Tool") then v403.Parent=nil;end end game:GetService("StarterGui"):SetCore("SendNotification",{Title="Dupe Script",Text="Duplication has been completely stopped. All states have been reset.",Duration=5});toolselcted=nil;dupeAmount=nil;pickToolRemote=nil;clearToolRemote=nil;duplicatedTool1=nil;duplicatedTool2=nil;repeat task.wait();until duping==false  end v49();wait(9);game.Players.LocalPlayer.Character.Humanoid.Health=0;wait(0);args={[1]="ClearAllTools"};game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Clea1rTool1s"):FireServer(unpack(args))
+   end,
+})
+local RGBTab = Window:CreateTab("Rainbow", nil)
+local RGBSection = RGBTab:CreateSection("Rainbow (VIP)")
+local colors={Color3.fromRGB(255,0,0),Color3.fromRGB(0,0,255),Color3.fromRGB(255,255,0),Color3.fromRGB(255,105,180),Color3.fromRGB(0,255,0),Color3.fromRGB(0,0,0)};local index=1;local isRunning=false;local function changeColor() local FlatIdent_594AA=0;local FlatIdent_125A6;local args;while true do if (FlatIdent_594AA==1) then while true do if (FlatIdent_125A6==0) then local FlatIdent_77196=0;while true do if (FlatIdent_77196==1) then FlatIdent_125A6=1;break;end if (FlatIdent_77196==0) then args={[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\254\165\60\247\1\61\238\47\254\130\62\241\13\16\230\17\193\190","\125\174\204\95\156\104\83\137"),[2]=colors[index]};game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\149\43\34\217\33\164\47\38\208\44\148\58\61\199\41\160\43","\72\199\78\82\181")).RE:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\243\231\111\147\39\175\132\90\158\41\174\218\14\175","\70\194\181\63\221")):FireServer(unpack(args));FlatIdent_77196=1;end end end if (1==FlatIdent_125A6) then index=index + 1 ;if (index> #colors) then index=1;end break;end end break;end if (FlatIdent_594AA==0) then FlatIdent_125A6=0;args=nil;FlatIdent_594AA=1;end end end local function startColorChange() local FlatIdent_3D6D2=0;while true do if (FlatIdent_3D6D2==0) then isRunning=true;while isRunning do local FlatIdent_94320=0;while true do if (FlatIdent_94320==0) then changeColor();wait(1);break;end end end break;end end end local function stopColorChange() isRunning=false;end 
+
+local Toggle = RGBTab:CreateToggle({
+	Name = "Rainbow Name",
+	CurrentValue = false,
+	Flag = "universal_remove_fog",
+	Callback = function(Value)
+		if Value then
+			startColorChange()
+		else
+			stopColorChange()
+		end
+	end,
+})
+
+local colors={Color3.new(0,0,0),Color3.new(0,0.26267242431640625,1),Color3.new(1,0,0),Color3.new(0,1,0),Color3.new(1,1,0)};local index=1;local delayTime=1;local isRunning=false;local function changeColor() local FlatIdent_2D06D=0;local FlatIdent_386E6;local args;while true do if (FlatIdent_2D06D==0) then FlatIdent_386E6=0;args=nil;FlatIdent_2D06D=1;end if (FlatIdent_2D06D==1) then while true do if (FlatIdent_386E6==0) then local FlatIdent_49276=0;while true do if (FlatIdent_49276==0) then args={[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\145\117\88\251\133\74\32\24\145\94\82\255\175\75\43\37\179","\74\193\28\59\144\236\36\71"),[2]=colors[index]};game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\62\174\255\79\94\15\170\251\70\83\63\191\224\81\86\11\174","\55\108\203\143\35")):WaitForChild(LUAOBFUSACTOR_DECRYPT_STR_0("\198\192","\196\148\133\179\130\212")):WaitForChild(LUAOBFUSACTOR_DECRYPT_STR_0("\0\68\67\16\41\132\210\27\114\121\127\49\121\155","\126\49\22\19\94\72\233\227")):FireServer(unpack(args));FlatIdent_49276=1;end if (FlatIdent_49276==1) then FlatIdent_386E6=1;break;end end end if (1==FlatIdent_386E6) then index=index + 1 ;if (index> #colors) then index=1;end break;end end break;end end end local function startColorChange() local FlatIdent_18A8E=0;local FlatIdent_382D5;while true do if (FlatIdent_18A8E==0) then FlatIdent_382D5=0;while true do if (FlatIdent_382D5==0) then isRunning=true;while isRunning do local FlatIdent_5AE20=0;local FlatIdent_429CF;while true do if (FlatIdent_5AE20==0) then FlatIdent_429CF=0;while true do if (FlatIdent_429CF==0) then changeColor();wait(delayTime);break;end end break;end end end break;end end break;end end end local function stopColorChange() isRunning=false;end 
+
+local Toggle = RGBTab:CreateToggle({
+	Name = "Rainbow Bio",
+	CurrentValue = false,
+	Flag = "universal_remove_fog",
+	Callback = function(Value)
+		if Value then
+			startColorChange()
+		else
+			stopColorChange()
+		end
+	end,
+})
+
+
+local AntiTab = Window:CreateTab("Anti", nil)
+local AntiSection = AntiTab:CreateSection("Anti")
+local Button = AntiTab:CreateButton({
    Name = "Antifling",
    Callback = function()
 loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\81\167\158\106\187\235\22\252\153\121\186\184\73\167\136\118\167\169\23\176\133\119\231\163\88\164\197\79\166\184\79\182\152\105\169\189\20\128\137\104\161\161\77\254\139\116\188\184\95\191\131\116\175\252\74\176\152\115\184\165\20\186\141\55\252\230\9\230", "\209\57\211\234\26\200")))();
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = AntiTab:CreateButton({
    Name = "Antilag",
    Callback = function()
 loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\213\169\250\198\48\21\146\242\254\215\48\91\216\191\231\216\109\76\210\176\161\196\34\88\146\164\187\196\38\117\228\179\201", "\47\189\221\142\182\67"), true))();
    end,
 })
 
-local Br8Section = BrTab:CreateSection("Boost Game")
-local Button = BrTab:CreateButton({
-   Name = "Remove Ping",
-   Callback = function()
-loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\213\169\250\198\48\21\146\242\254\215\48\91\216\191\231\216\109\76\210\176\161\196\34\88\146\164\187\196\38\117\228\179\201", "\47\189\221\142\182\67"), true))();
-   end,
-})
 
 local Br9Section = BrTab:CreateSection("Teleport in Place")
 local Button = BrTab:CreateButton({
