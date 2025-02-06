@@ -118,7 +118,7 @@ local function LUAOBFUSACTOR_DECRYPT_STR_0(LUAOBFUSACTOR_STR, LUAOBFUSACTOR_KEY)
 end
 bit32={};local v0=32;local v1=2^v0 ;bit32.bnot=function(v10) v10=v10%v1 ;return (v1-1) -v10 ;end;bit32.band=function(v11,v12) if (v12==255) then return v11%256 ;end if (v12==65535) then return v11%65536 ;end if (v12==4294967295) then return v11%4294967296 ;end v11,v12=v11%v1 ,v12%v1 ;local v13=0;local v14=1;for v29=1,v0 do local v30,v31=v11%2 ,v12%2 ;v11,v12=math.floor(v11/2 ),math.floor(v12/2 );if ((v30 + v31)==2) then v13=v13 + v14 ;end v14=2 * v14 ;end return v13;end;bit32.bor=function(v15,v16) if (v16==255) then return (v15-(v15%256)) + 255 ;end if (v16==65535) then return (v15-(v15%65536)) + 65535 ;end if (v16==4294967295) then return 4294967295;end v15,v16=v15%v1 ,v16%v1 ;local v17=0;local v18=1;for v32=1,v0 do local v33,v34=v15%2 ,v16%2 ;v15,v16=math.floor(v15/2 ),math.floor(v16/2 );if ((v33 + v34)>=1) then v17=v17 + v18 ;end v18=2 * v18 ;end return v17;end;bit32.bxor=function(v19,v20) v19,v20=v19%v1 ,v20%v1 ;local v21=0;local v22=1;for v35=1,v0 do local v36,v37=v19%2 ,v20%2 ;v19,v20=math.floor(v19/2 ),math.floor(v20/2 );if ((v36 + v37)==1) then v21=v21 + v22 ;end v22=2 * v22 ;end return v21;end;bit32.lshift=function(v23,v24) if (math.abs(v24)>=v0) then return 0;end v23=v23%v1 ;if (v24<0) then return math.floor(v23 * (2^v24) );else return (v23 * (2^v24))%v1 ;end end;bit32.rshift=function(v25,v26) if (math.abs(v26)>=v0) then return 0;end v25=v25%v1 ;if (v26>0) then return math.floor(v25 * (2^ -v26) );else return (v25 * (2^ -v26))%v1 ;end end;bit32.arshift=function(v27,v28) if (math.abs(v28)>=v0) then return 0;end v27=v27%v1 ;if (v28>0) then local v45=0;if (v27>=(v1/2)) then v45=v1-(2^(v0-v28)) ;end return math.floor(v27 * (2^ -v28) ) + v45 ;else return (v27 * (2^ -v28))%v1 ;end end;local v9={};
 
-args={[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\46\234\73\251\132\184\29\252\107\255\185\177","\212\124\133\37\158\212"),[2]="『AntiOder Hub | Normal Version』"};game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\227\48\29\120\21\60\208\33\8\112\47\43\222\39\12\115\25","\95\177\85\109\20\124")).RE:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\161\18\144\147\117\168\96\130\196\37\184\236\96","\231\144\64\192\221\20\197\81")):FireServer(unpack(args))
+args={[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\46\234\73\251\132\184\29\252\107\255\185\177","\212\124\133\37\158\212"),[2]="『AntiOder Hub | VIP Version』"};game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\227\48\29\120\21\60\208\33\8\112\47\43\222\39\12\115\25","\95\177\85\109\20\124")).RE:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\161\18\144\147\117\168\96\130\196\37\184\236\96","\231\144\64\192\221\20\197\81")):FireServer(unpack(args))
 
 
 local camera = workspace.CurrentCamera
@@ -897,7 +897,7 @@ loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
 })
 
 local SkTab = Window:CreateTab("Skins", nil)
-local SkSection = BrTab:CreateSection("Skins for Brookhaven RP")
+local SkSection = SkTab:CreateSection("Skins for Brookhaven RP")
 local Button = SkTab:CreateButton({
    Name = "Assassin",
    Callback = function()
@@ -920,7 +920,7 @@ local Button = SkTab:CreateButton({
 
 local Sk3Section = SkTab:CreateSection("Accessories")
 
-local Button = BrTab:CreateButton({
+local Button = SkTab:CreateButton({
    Name = "Headless",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\201\189\37\241\65\60\254\176\54\192\72\62\228\178\33", "\95\138\213\68\131\32"),[2]={[1]=1,[2]=1,[3]=1,[4]=1,[5]=1,[6]=134082579},[3]=LUAOBFUSACTOR_DECRYPT_STR_0("\40\49\251\113\83\14\50", "\22\74\72\193\35")};
@@ -929,7 +929,7 @@ local Button = BrTab:CreateButton({
 })
 
 
-local Button = BrTab:CreateButton({
+local Button = SkTab:CreateButton({
    Name = "Coming In 3.50",
    Callback = function()
 print("wait the update bro")
@@ -978,7 +978,7 @@ local Input = HouseTab:CreateInput({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = HouseTab:CreateButton({
    Name = "Get Roommate",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\109\211\0\215\231\4\172\71\211\5\193\222\14\176\102\213\25\194\227\14\141\79\200\0\215\197", "\222\42\186\118\178\183\97"),[2]=game[LUAOBFUSACTOR_DECRYPT_STR_0("\109\224\69\147\88\254\87", "\234\61\140\36")][LUAOBFUSACTOR_DECRYPT_STR_0("\13\210\185\115\3\17\209\187\107\10\51", "\111\65\189\218\18")],[3]=a};
@@ -987,7 +987,7 @@ local Button = BrTab:CreateButton({
 })
 
 
-local Button = BrTab:CreateButton({
+local Button = HouseTab:CreateButton({
    Name = "Delete Home",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\111\36\175\29\83\77\27\171\8\90\119\39\187\23\83", "\54\63\72\206\100")};
@@ -995,7 +995,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = HouseTab:CreateButton({
    Name = "Open/Close Windows",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\171\206\207\184\160\31\168\48", "\67\232\187\189\204\193\118\198")};
@@ -1004,7 +1004,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = HouseTab:CreateButton({
    Name = "Lock/Unlock Doors",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\201\169\185\204\172\227\234\180\169", "\140\133\198\218\167\232")};
@@ -1012,7 +1012,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = HouseTab:CreateButton({
    Name = "Open/Close Garage",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\107\31\200\161\183\73\58\213\175\162", "\208\44\126\186\192")};
@@ -1020,7 +1020,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = HouseTab:CreateButton({
    Name = "Fire House",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\59\236\34\254\47\215\8\126\5\244\48\193\35\215\58\80\5\198\42\245\47\245\62\108\24\206\44\243\25\205\48\104\2\238\36\198\36\220\48\113\14", "\31\107\128\67\135\74\165\95")};
@@ -1225,7 +1225,7 @@ local Button = SuperTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = SuperTab:CreateButton({
    Name = "Tp all (take a sofa)",
    Callback = function()
 loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\177\253\231\214\170\179\188\137\169\232\224\210\188\235\250\200\247\234\252\203\246\251\242\209\246\243\226\223\157\218\198\241\129", "\166\217\137\147")))();
@@ -1295,6 +1295,8 @@ loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\213\169\250\198\48\21\146\
    end,
 })
 
+local BrTab = Window:CreateTab("Teleport", nil)
+
 
 local Br9Section = BrTab:CreateSection("Teleport in Place")
 local Button = BrTab:CreateButton({
@@ -1335,8 +1337,9 @@ print("so soon")
    end,
 })
 
-local Br10Section = BrTab:CreateSection("Car music (need a gamepass)")
-local musictextbox = BrTab:CreateInput({
+local MusicTab = Window:CreateTab("Music in car", nil)
+local Br10Section = MusicTab:CreateSection("Car music (need a gamepass)")
+local musictextbox = MusicTab:CreateInput({
    Name = "Song Id (car)",
    CurrentValue = "",
    PlaceholderText = "Id",
@@ -1347,7 +1350,7 @@ local musictextbox = BrTab:CreateInput({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = MusicTab:CreateButton({
    Name = "Play Id",
    Callback = function()
                 if (musicId and (musicId ~= "")) then
@@ -1358,7 +1361,7 @@ local Button = BrTab:CreateButton({
 		end
    end,
 })
-local Button = BrTab:CreateButton({
+local Button = MusicTab:CreateButton({
    Name = "Stop Id",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\192\225\19\207\249\179\247\203\17\214\221\168\227\225\19\240\245\165\228", "\221\144\136\112\164\144"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\15\101\32\242\10\109\47\242\14\104", "\196\57\93\25")};
@@ -1366,7 +1369,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = MusicTab:CreateButton({
    Name = "Moskau",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\67\53\209\125\122\50\213\85\114\46\255\99\96\53\209\66\118\36\198", "\22\19\92\178"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\143\88\22\126\232\228\143\91\19", "\209\190\107\35\78\221")};
@@ -1374,7 +1377,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = MusicTab:CreateButton({
    Name = "Torture Scream",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\11\217\28\227\125\53\215\60\233\102\22\197\12\225\119\15\213\7\252", "\20\91\176\127\136"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\166\164\127\242\95\252\160\164\126", "\196\151\144\72\197\106")};
@@ -1382,7 +1385,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = MusicTab:CreateButton({
    Name = "Scary Scream",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\201\5\43\202\251\247\11\11\192\224\212\25\59\200\241\205\9\48\213", "\146\153\108\72\161"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\93\71\191\178\126\106\103\82\70\190", "\94\101\116\141\135\75\91")};
@@ -1390,7 +1393,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = MusicTab:CreateButton({
    Name = "Kira laught",
    Callback = function()
 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\67\230\79\125\218\232\40\241\114\253\97\99\192\239\44\230\118\247\88", "\178\19\143\44\22\179\134\79"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\75\208\243\76\30\135\165\215\78\209", "\228\125\225\203\117\40\177\151")};
@@ -1398,7 +1401,7 @@ local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\67\230\79\125\218\232\40\241\114
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = MusicTab:CreateButton({
    Name = "Demon song",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\3\52\237\113\45\61\58\205\123\54\30\40\253\115\39\7\56\246\110", "\68\83\93\142\26"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\209\250\154\92\92\85\252\211\250\158", "\207\226\206\174\109\108\101")};
@@ -1407,7 +1410,7 @@ local Button = BrTab:CreateButton({
 })
 
 
-local Button = BrTab:CreateButton({
+local Button = MusicTab:CreateButton({
    Name = "Rock (loud)",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\180\171\5\229\248\69\210\167\163\20\195\228\88\220\135\150\3\246\229", "\181\228\194\102\142\145\43"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\99\189\84\90\142\126\1\109\188\92", "\51\84\138\109\111\182\79")};
@@ -1415,7 +1418,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
-local Button = BrTab:CreateButton({
+local Button = MusicTab:CreateButton({
    Name = "Soon...",
    Callback = function()
 print("soon bro")
