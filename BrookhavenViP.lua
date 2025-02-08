@@ -1239,7 +1239,7 @@ local displayNameInput = SuperTab:CreateInput({
    RemoveTextAfterFocusLost = false,
    Flag = "Input1",
    Callback = function(Nick)
-       print("Nickname: " ..Nick)         
+       displayNameInput = Nick         
    end,
 })
 
