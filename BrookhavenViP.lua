@@ -1232,6 +1232,207 @@ loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\177\253\231\214\170\179\18
    end,
 })
 
+local displayNameInput = SuperTab:CreateInput({
+   Name = "Copy Avatar",
+   CurrentValue = "",
+   PlaceholderText = "Nickname",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function()
+       print("Nickname is in input")         
+   end,
+})
+
+
+local function RESETBLOCK()
+local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 0,
+        [2] = 0,
+        [3] = 0,
+        [4] = 0,
+        [5] = 0,
+        [6] = 0
+    },
+    [3] = "AllBlocky"
+}
+	
+game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+end
+
+local function APPLY_SKINTONE(Player)
+    local p = Player
+    local c = p.Character or p.CharacterAdded:Wait()
+    local h = c:FindFirstChildOfClass("Humanoid")
+
+    if not h then
+        warn("Humanoid not found!")
+        return
+    end
+
+    local bodyColors = c:FindFirstChildOfClass("BodyColors")
+
+    if not bodyColors then
+        warn("BodyColors not found!")
+        return
+    end
+
+    -- Get skin tone (use HeadColor or any other body part color)
+    local skinTone = bodyColors.HeadColor
+
+    -- Convert BrickColor to readable string
+    local skinToneName = skinTone.Name
+
+    -- Fire the RemoteEvent with the detected skin tone
+    local args = {
+        [1] = "skintone",
+        [2] = skinToneName
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Updat1eAvata1r"):FireServer(unpack(args))
+end
+
+local function COPYCLOTHING(Player)
+    local p = Player
+    local c = p.Character or p.CharacterAdded:Wait()
+    local h = c:FindFirstChildOfClass("Humanoid")
+
+    if not h then
+        warn("Humanoid not found!")
+        return
+    end
+
+    local d = h:GetAppliedDescription()
+    local cIds = { d.Shirt, d.Pants, d.GraphicTShirt }
+    local done = false
+
+    task.spawn(function()
+        for _, id in ipairs(cIds) do
+            if id ~= 0 then
+                task.wait(1)
+                Wear(id)
+            end
+        end
+        done = true
+    end)
+
+    repeat task.wait() until done -- Ensure the function waits until completion
+end
+
+local function COPYBODYPART(Player)
+    local p = Player
+    local c = p.Character or p.CharacterAdded:Wait()
+    local h = c:FindFirstChildOfClass("Humanoid")
+
+    if not h then
+        warn("Humanoid not found!")
+        return
+    end
+
+    local d = h:GetAppliedDescription()
+    
+    local bIds = {
+        d.Torso,
+        d.RightArm,
+        d.LeftArm,
+        d.RightLeg,
+        d.LeftLeg,
+        d.Head
+    }
+
+    local done = false
+    task.spawn(function()
+        game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(
+            "CharacterChange",
+            bIds,
+            "GAZE"
+        )
+        done = true
+    end)
+
+    repeat task.wait() until done
+end
+
+local function COPYACCESSORIES(Player)
+    local p = Player
+    local c = p.Character or p.CharacterAdded:Wait()
+    local h = c:FindFirstChildOfClass("Humanoid")
+
+    if not h then
+        warn("Humanoid not found!")
+        return
+    end
+
+    local d = h:GetAppliedDescription()
+    local aIds = {}
+
+    for _, aList in ipairs({
+        d.HatAccessory,
+        d.HairAccessory,
+        d.FaceAccessory,
+        d.NeckAccessory,
+        d.ShouldersAccessory,
+        d.FrontAccessory,
+        d.BackAccessory,
+        d.WaistAccessory
+    }) do
+        for id in string.gmatch(aList, "%d+") do
+            table.insert(aIds, tonumber(id))
+        end
+    end
+
+    local done = false
+    task.spawn(function()
+        for _, id in ipairs(aIds) do
+            task.wait(1)
+            Wear(id)
+        end
+        done = true
+    end)
+
+    repeat task.wait() until done
+end
+
+local function START(displayName)
+    local player = nil
+    displayName = string.lower(displayName)
+    for _, plr in ipairs(game.Players:GetPlayers()) do
+        local playerNameLower = string.lower(plr.Name)
+        local playerDisplayNameLower = string.lower(plr.DisplayName)
+        if string.find(playerNameLower, displayName, 1, true) or string.find(playerDisplayNameLower, displayName, 1, true) then
+            player = plr
+            break
+        end
+    end
+
+    if player then
+   
+    COPYACCESSORIES(game.Players.LocalPlayer)
+    COPYACCESSORIES(player)
+    wait(1)
+    RESETBLOCK()
+    wait(3)
+    COPYBODYPART(player)
+    COPYCLOTHING(player)
+    APPLY_SKINTONE(player)
+    
+    
+    
+end
+end
+
+
+local Button = SuperTab:CreateButton({
+   Name = "Equip All",
+   Callback = function()
+	local displayName = displaynameInput
+        
+   end,
+})
+
+
+
 local BuildSection = SuperTab:CreateSection("Building (VIP)")
 local Button = SuperTab:CreateButton({
    Name = "Equip All",
@@ -1246,6 +1447,7 @@ local Button = SuperTab:CreateButton({
 	v9["player%0"]=game.Players.LocalPlayer;local function v49() duping=false;if ((1404==1404) and v9["player%0"].Character and v9["player%0"].Character:FindFirstChild("HumanoidRootPart")) then v9["player%0"].Character.HumanoidRootPart.Anchored=false;end if oldcf then v9["player%0"].Character.HumanoidRootPart.CFrame=oldcf;end if (game.Workspace:FindFirstChild("Camera") or (3748<2212)) then game.Workspace.Camera:Destroy();end for v400,v401 in pairs(v9["player%0"].Backpack:GetChildren()) do if (v401:IsA("Tool") or (1180==2180)) then v401.Parent=nil;end end for v402,v403 in pairs(v9["player%0"].Character:GetChildren()) do if v403:IsA("Tool") then v403.Parent=nil;end end game:GetService("StarterGui"):SetCore("SendNotification",{Title="Dupe Script",Text="Duplication has been completely stopped. All states have been reset.",Duration=5});toolselcted=nil;dupeAmount=nil;pickToolRemote=nil;clearToolRemote=nil;duplicatedTool1=nil;duplicatedTool2=nil;repeat task.wait();until duping==false  end v49();wait(9);game.Players.LocalPlayer.Character.Humanoid.Health=0;wait(0);args={[1]="ClearAllTools"};game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Clea1rTool1s"):FireServer(unpack(args))
    end,
 })
+
 local RGBTab = Window:CreateTab("Rainbow", nil)
 local RGBSection = RGBTab:CreateSection("Rainbow (VIP)")
 local colors={Color3.fromRGB(255,0,0),Color3.fromRGB(0,0,255),Color3.fromRGB(255,255,0),Color3.fromRGB(255,105,180),Color3.fromRGB(0,255,0),Color3.fromRGB(0,0,0)};local index=1;local isRunning=false;local function changeColor() local FlatIdent_594AA=0;local FlatIdent_125A6;local args;while true do if (FlatIdent_594AA==1) then while true do if (FlatIdent_125A6==0) then local FlatIdent_77196=0;while true do if (FlatIdent_77196==1) then FlatIdent_125A6=1;break;end if (FlatIdent_77196==0) then args={[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\254\165\60\247\1\61\238\47\254\130\62\241\13\16\230\17\193\190","\125\174\204\95\156\104\83\137"),[2]=colors[index]};game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\149\43\34\217\33\164\47\38\208\44\148\58\61\199\41\160\43","\72\199\78\82\181")).RE:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\243\231\111\147\39\175\132\90\158\41\174\218\14\175","\70\194\181\63\221")):FireServer(unpack(args));FlatIdent_77196=1;end end end if (1==FlatIdent_125A6) then index=index + 1 ;if (index> #colors) then index=1;end break;end end break;end if (FlatIdent_594AA==0) then FlatIdent_125A6=0;args=nil;FlatIdent_594AA=1;end end end local function startColorChange() local FlatIdent_3D6D2=0;while true do if (FlatIdent_3D6D2==0) then isRunning=true;while isRunning do local FlatIdent_94320=0;while true do if (FlatIdent_94320==0) then changeColor();wait(1);break;end end end break;end end end local function stopColorChange() isRunning=false;end 
