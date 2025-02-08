@@ -1238,8 +1238,8 @@ local displayNameInput = SuperTab:CreateInput({
    PlaceholderText = "Nickname",
    RemoveTextAfterFocusLost = false,
    Flag = "Input1",
-   Callback = function()
-       print("Nickname is in input")         
+   Callback = function(Nick)
+       print("Nickname: " ..Nick)         
    end,
 })
 
@@ -1424,10 +1424,10 @@ end
 
 
 local Button = SuperTab:CreateButton({
-   Name = "Equip All",
+   Name = "Copy!",
    Callback = function()
-	local displayName = displaynameInput
-        
+	local displayName = displayNameInput
+        START(displayName)
    end,
 })
 
