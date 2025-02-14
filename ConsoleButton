@@ -1,0 +1,32 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local TextButton = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+TextButton.Parent = ScreenGui
+TextButton.BackgroundColor3 = Color3.fromRGB(156, 14, 156)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.458797336, 0, 0.42479676, 0)
+TextButton.Size = UDim2.new(0, 54, 0, 43)
+TextButton.Font = Enum.Font.Arcade
+TextButton.Text = "Console"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+TextButton.Draggable = true
+
+TextButton.MouseButton1Click:Connect(function()
+  game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
+end)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Console button";
+        Text = "made by aftr_lua";
+        Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
