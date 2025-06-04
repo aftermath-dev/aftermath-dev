@@ -6,7 +6,7 @@ local UIGradient = Instance.new("UIGradient")
 --Properties:
 
 togglegui.Name = "togglegui"
-togglegui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+togglegui.Parent = game.CoreGui
 togglegui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 TextButton.Parent = togglegui
